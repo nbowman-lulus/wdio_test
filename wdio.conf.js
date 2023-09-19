@@ -53,7 +53,8 @@ export const config = {
     // https://saucelabs.com/platform/platform-configurator
     //
     capabilities: [{
-        browserName: 'chrome'
+        browserName: 'chrome',
+        browserVersion: 'stable'
     }],
 
     //
@@ -63,7 +64,7 @@ export const config = {
     // Define all options that are relevant for the WebdriverIO instance here
     //
     // Level of logging verbosity: trace | debug | info | warn | error | silent
-    logLevel: 'info',
+    logLevel: 'trace',
     //
     // Set specific log levels per logger
     // loggers:
@@ -151,7 +152,7 @@ export const config = {
     onPrepare: async function (config, capabilities) {
         console.log('beginning of onPrepare');
         await setValue('test', 'value');
-        //console.log(await getValue('*'));
+        console.log(await getValue('*'));
     },
     /**
      * Gets executed before a worker process is spawned and can be used to initialise specific service
